@@ -1,0 +1,23 @@
+{
+    "name": "gmopx/laravel-owm",
+    "description": "Wrapper for cmfcmf/openweathermap-php-api",
+    "keywords": ["weather","clima","open weather map","laravel"],
+    "require": {
+        "php": ">=5.4.0",
+        "cmfcmf/openweathermap-php-api": "^2.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guillermo Palafox",
+            "email": "palafox.87@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+
+    "autoload": {
+        "psr-4": {
+            "Gmopx\\LaravelOWM\\": "src/"
+        }
+    }
+}
