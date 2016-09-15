@@ -678,8 +678,7 @@ So to maintain a well-ordered info I built a key depending on the hours range (i
 }
 ```
 
-### Licence: MIT
-
+### License: MIT
 
 
 ### Contributing
