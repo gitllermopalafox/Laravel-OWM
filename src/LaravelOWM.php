@@ -18,11 +18,11 @@ class LaravelOWM
     {
         $this->config = config('laravel-owm');
 
-        if($this->config === null){
+        if ($this->config === null) {
             throw new \Exception('config/laravel-owm.php not found');
         }
 
-        if($this->config['api_key'] === null){
+        if ($this->config['api_key'] === null) {
             throw new \Exception('laravel-owm.api_key not found');
         }
 
@@ -53,7 +53,7 @@ class LaravelOWM
         $lang = $lang ?: 'en';
         $units = $units ?: 'metric';
 
-        if($cache){
+        if ($cache) {
             $owm = new OpenWeatherMap($this->api_key, null, new Cache(), $time);
             return $owm->getWeather($query, $units, $lang);
         }
@@ -88,7 +88,7 @@ class LaravelOWM
         $units = $units ?: 'metric';
         $days = $days ?: 6;
 
-        if($cache){
+        if ($cache) {
             $owm = new OpenWeatherMap($this->api_key, null, new Cache(), $time);
             return $owm->getWeatherForecast($query, $units, $lang, '', $days);
         }
@@ -96,5 +96,43 @@ class LaravelOWM
         $owm = new OpenWeatherMap($this->api_key);
         return $owm->getWeatherForecast($query, $units, $lang, '', $days);
     }
-    
+
+    /**
+     * Returns the weather history for the place you specified.
+     *
+     * More info about how to interact with the results:
+     *
+     * https://github.com/cmfcmf/OpenWeatherMap-PHP-Api/blob/master/Examples/WeatherHistory.php
+     *
+     * There are three ways to specify the place to get weather information for:
+     *  - Use the city name: $query must be a string containing the city name.
+     *  - Use the city id: $query must be an integer containing the city id.
+     *  - Use the coordinates: $query must be an associative array containing the 'lat' and 'lon' values.
+     *
+     * @param array|int|string $query
+     * @param string $lang
+     * @param string $units
+     * @param \DateTime $start
+     * @param int $endOrCount
+     * @param string $type
+     * @param bool $cache
+     * @param int $time
+     * @return OpenWeatherMap\WeatherHistory
+     */
+    public function getWeatherHistory($query, $lang = 'en', $units = 'metric', \DateTime $start, $endOrCount = 1, $type = 'hour', $cache = false, $time = 600)
+    {
+        $lang = $lang ?: 'en';
+        $units = $units ?: 'metric';
+        $start = $start ?: new \DateTime;
+        $endOrCount = $endOrCount ?: 1;
+        $type = $type ?: 'hour';
+
+        if ($cache) {
+            $owm = new OpenWeatherMap($this->api_key, null, new Cache(), $time);
+            return $owm->getWeatherHistory($query, $start, $endOrCount, $type, $units, $lang, '');
+        }
+
+        $owm = new OpenWeatherMap($this->api_key);
+        return $owm->getWeatherHistory($query, $start, $endOrCount, $type, $units, $lang, '');
+    }
 }
