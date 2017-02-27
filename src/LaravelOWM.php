@@ -111,16 +111,16 @@ class LaravelOWM
      *  - Use the coordinates: $query must be an associative array containing the 'lat' and 'lon' values.
      *
      * @param array|int|string $query
-     * @param string $lang
-     * @param string $units
      * @param \DateTime $start
      * @param int $endOrCount
      * @param string $type
+     * @param string $lang
+     * @param string $units
      * @param bool $cache
      * @param int $time
      * @return OpenWeatherMap\WeatherHistory
      */
-    public function getWeatherHistory($query, $lang = 'en', $units = 'metric', \DateTime $start, $endOrCount = 1, $type = 'hour', $cache = false, $time = 600)
+    public function getWeatherHistory($query, \DateTime $start, $endOrCount = 1, $type = 'hour', $lang = 'en', $units = 'metric', $cache = false, $time = 600)
     {
         $lang = $lang ?: 'en';
         $units = $units ?: 'metric';

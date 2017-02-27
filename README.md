@@ -77,6 +77,30 @@ public function bar()
 Visit [https://github.com/cmfcmf/OpenWeatherMap-PHP-Api/blob/master/Examples/WeatherForecast.php](https://github.com/cmfcmf/OpenWeatherMap-PHP-Api/blob/master/Examples/WeatherForecast.php) for more info.
 
 
+#### History
+
+```
+...
+use Gmopx\LaravelOWM\LaravelOWM;
+...
+
+public function bar()
+{
+    $lowm = new LaravelOWM();
+
+    // Get yesterday's date
+    $date = new \DateTime();
+    $date->add(\DateInterval::createFromDateString('yesterday'));
+
+    $history = $lowm->getWeatherHistory('london', $date);
+
+    dd($history);
+}
+
+```
+
+Visit [https://github.com/cmfcmf/OpenWeatherMap-PHP-Api/blob/master/Examples/WeatherForecast.php](https://github.com/cmfcmf/OpenWeatherMap-PHP-Api/blob/master/Examples/WeatherForecast.php) for more info.
+
 ##### Parameters:
 
 Note:
@@ -140,16 +164,16 @@ There are three ways to specify the place to get weather information for:
      * https://github.com/cmfcmf/OpenWeatherMap-PHP-Api/blob/master/Examples/WeatherHistory.php
      *
      * @param $query            (required)
-     * @param string $lang      (default: en) - http://openweathermap.org/current#multi.
-     * @param string $units     (default: metric) - 'metric' or 'imperial'.
      * @param \DateTime $start  (default: today)
      * @param int $endOrCount   (default: 1)
      * @param string $type      (default: hour) - 'tick', 'hour', or 'day'
+     * @param string $lang      (default: en) - http://openweathermap.org/current#multi.
+     * @param string $units     (default: metric) - 'metric' or 'imperial'.
      * @param bool $cache       (default: false)
      * @param int $time         (default: 600)
      * @return OpenWeatherMap\WeatherForecast
      */
-    public function getWeatherHistory($query, $lang = 'en', $units = 'metric', \DateTime $start, $endOrCount = 1, $type = 'hour', $cache = false, $time = 600)
+    public function getWeatherHistory($query, \DateTime $start, $endOrCount = 1, $type = 'hour', $lang = 'en', $units = 'metric', $cache = false, $time = 600)
     ...
 
 ```
