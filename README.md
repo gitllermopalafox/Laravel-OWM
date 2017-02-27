@@ -130,6 +130,30 @@ There are three ways to specify the place to get weather information for:
 
 ```
 
+##### getWeatherHistory:
+```
+    /**
+     * Get the forecast of the requested location/city.
+     *
+     * More info about how to interact with the results:
+     *
+     * https://github.com/cmfcmf/OpenWeatherMap-PHP-Api/blob/master/Examples/WeatherHistory.php
+     *
+     * @param $query            (required)
+     * @param string $lang      (default: en) - http://openweathermap.org/current#multi.
+     * @param string $units     (default: metric) - 'metric' or 'imperial'.
+     * @param \DateTime $start  (default: today)
+     * @param int $endOrCount   (default: 1)
+     * @param string $type      (default: hour) - 'tick', 'hour', or 'day'
+     * @param bool $cache       (default: false)
+     * @param int $time         (default: 600)
+     * @return OpenWeatherMap\WeatherForecast
+     */
+    public function getWeatherHistory($query, $lang = 'en', $units = 'metric', \DateTime $start, $endOrCount = 1, $type = 'hour', $cache = false, $time = 600)
+    ...
+
+```
+
 
 ### Routes
 
