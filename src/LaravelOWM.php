@@ -1,4 +1,5 @@
-<?php namespace Gmopx\LaravelOWM;
+<?php
+namespace Gmopx\LaravelOWM;
 
 use Cmfcmf\OpenWeatherMap;
 
