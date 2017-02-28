@@ -16,9 +16,11 @@ class LaravelOWMServiceProvider extends ServiceProvider {
 
 		// Loading routes file
 		if ($config !== null) {
-			if($config['routes_enabled']){
+
+			if ($config['routes_enabled']) {
 				require __DIR__ . '/Http/routes.php';
 			}
+
 		} else {
 			require __DIR__ . '/Http/routes.php';
 		}
