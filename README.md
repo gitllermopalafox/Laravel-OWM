@@ -726,6 +726,16 @@ So to maintain a well-ordered info I built a key depending on the hours range (i
 }
 ```
 
+## Changelog
+
+v0.1.1
+- Whitespace/formatting.
+- Added getWeatherHistory method
+- Additional README documentation
+
+Thanks to @nateritter
+
+
 ### License: MIT
 
 
