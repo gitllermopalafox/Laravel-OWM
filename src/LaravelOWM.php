@@ -99,6 +99,39 @@ class LaravelOWM
     }
 
     /**
+     * Get the daily forecast of the requested location/city.
+     *
+     *
+     *
+     * There are three ways to specify the place to get weather information for:
+     *  - Use the city name: $query must be a string containing the city name.
+     *  - Use the city id: $query must be an integer containing the city id.
+     *  - Use the coordinates: $query must be an associative array containing the 'lat' and 'lon' values.
+     *
+     * @param array|int|string $query
+     * @param string $lang
+     * @param string $units
+     * @param int $days
+     * @param bool $cache
+     * @param int $time
+     * @return OpenWeatherMap\WeatherForecast
+     */
+    public function getDailyWeatherForecast($query, $lang = 'en', $units = 'metric', $days = 5, $cache = false, $time = 600)
+    {
+        $lang = $lang ?: 'en';
+        $units = $units ?: 'metric';
+        $days = $days ?: 6;
+
+        if ($cache) {
+            $owm = new OpenWeatherMap($this->api_key, null, new Cache(), $time);
+            return $owm->getDailyWeatherForecast($query, $units, $lang, '', $days);
+        }
+
+        $owm = new OpenWeatherMap($this->api_key);
+        return $owm->getDailyWeatherForecast($query, $units, $lang, '', $days);
+    }
+
+    /**
      * Returns the weather history for the place you specified.
      *
      * More info about how to interact with the results:
