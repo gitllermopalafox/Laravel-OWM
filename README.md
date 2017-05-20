@@ -154,6 +154,29 @@ There are three ways to specify the place to get weather information for:
 
 ```
 
+##### getDailyWeatherForecast:
+```
+    /**
+     * Get the daily forecast of the requested location/city.
+     *
+     *
+     * There are three ways to specify the place to get weather information for:
+     *  - Use the city name: $query must be a string containing the city name.
+     *  - Use the city id: $query must be an integer containing the city id.
+     *  - Use the coordinates: $query must be an associative array containing the 'lat' and 'lon' values.
+     *
+     * @param array|int|string $query
+     * @param string $lang
+     * @param string $units
+     * @param int $days
+     * @param bool $cache
+     * @param int $time
+     * @return OpenWeatherMap\WeatherForecast
+     */
+    public function getDailyWeatherForecast($query, $lang = 'en', $units = 'metric', $days = 5, $cache = false, $time = 600)
+    ...
+```
+
 ##### getWeatherHistory:
 ```
     /**
@@ -728,13 +751,17 @@ So to maintain a well-ordered info I built a key depending on the hours range (i
 
 ## Changelog
 
+v0.1.2
+- Support for getDailyWeatherForecast
+
 v0.1.1
 - Whitespace/formatting.
 - Added getWeatherHistory method
 - Additional README documentation
 
-Thanks to @nateritter
-
+Thanks to: 
+- [@nateritter](https://github.com/nateritter)
+- [@jmaurer1994](https://github.com/jmaurer1994)
 
 ### License: MIT
 
