@@ -47,7 +47,7 @@ use Gmopx\LaravelOWM\LaravelOWM;
 public function foo()
 {
     $lowm = new LaravelOWM();
-    $current_weather = $lown->getCurrentWeather('london');
+    $current_weather = $lowm->getCurrentWeather('london');
 
     dd($current_weather->temperature);
 }
