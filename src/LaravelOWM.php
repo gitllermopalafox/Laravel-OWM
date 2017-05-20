@@ -102,7 +102,6 @@ class LaravelOWM
      * Get the daily forecast of the requested location/city.
      *
      *
-     *
      * There are three ways to specify the place to get weather information for:
      *  - Use the city name: $query must be a string containing the city name.
      *  - Use the city id: $query must be an integer containing the city id.
