@@ -14,12 +14,14 @@ For Laravel == 5.0.*
 'Gmopx\LaravelOWM\LaravelOWMServiceProvider'
 ```
 
-For Laravel >= 5.1.*
+For Laravel <= 5.4.*
 
 ```
 Gmopx\LaravelOWM\LaravelOWMServiceProvider::class,
 
 ```
+
+For Laravel >= 5.5.* will use the auto-discovery function.
 
 #### 3. Publish the config file (config/laravel-owm.php)
 

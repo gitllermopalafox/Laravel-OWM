@@ -6,7 +6,9 @@
         "php": ">=5.4.0",
         "cmfcmf/openweathermap-php-api": "^2.1"
     },
+  
     "license": "MIT",
+
     "authors": [
         {
             "name": "Guillermo Palafox",
@@ -18,6 +20,14 @@
     "autoload": {
         "psr-4": {
             "Gmopx\\LaravelOWM\\": "src/"
+        }
+    },
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gmopx\\LaravelOWM\\LaravelOWMServiceProvider"
+            ]
         }
     }
 }
